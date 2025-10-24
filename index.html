@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joshika Saravanan - Wikipedia Style Autobiography</title>
+
+<style>
+/* ---------- General Page Style ---------- */
+body {
+    margin: 0;
+    font-family: "Segoe UI", "Georgia", serif;
+    background-color: #0d1117;
+    color: #e6edf3;
+    min-height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+    width: 240px;
+    background-color: #161b22;
+    border-right: 1px solid #30363d;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar h2 {
+    color: #58a6ff;
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: block;
+    color: #b0b3b8;
+    padding: 10px 15px;
+    margin: 5px 0;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #21262d;
+    color: #58a6ff;
+}
+
+/* ---------- Hamburger Button ---------- */
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #58a6ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 24px;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+/* ---------- Main Content ---------- */
+main {
+    margin-left: 260px;
+    padding: 40px;
+    transition: 0.3s ease;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #161b22;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    flex-wrap: wrap;
+}
+
+header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+header h1 {
+    font-size: 1.8em;
+    color: #58a6ff;
+    margin: 0;
+}
+
+/* ---------- Infobox ---------- */
+.infobox {
+    float: right;
+    width: 280px;
+    background-color: #21262d;
+    border: 1px solid #30363d;
+    padding: 10px;
+    border-radius: 8px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.infobox img {
+    display: block;
+    margin: 0 auto 10px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 2px solid #58a6ff;
+}
+
+.infobox table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+}
+
+.infobox th {
+    text-align: left;
+    color: #58a6ff;
+    padding: 4px;
+}
+
+.infobox td {
+    padding: 4px;
+    color: #ccc;
+}
+
+/* ---------- Section and Article ---------- */
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    color: #58a6ff;
+    border-bottom: 1px solid #58a6ff;
+    padding-bottom: 5px;
+    margin-top: 40px;
+}
+
+article {
+    background-color: #161b22;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #30363d;
+    margin-top: 10px;
+}
+
+ul, ol {
+    margin-left: 40px;
+}
+
+p, li {
+    line-height: 1.7;
+    text-align: justify;
+    color: #ddd;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    text-align: center;
+    margin-top: 60px;
+    color: #888;
+    font-size: 0.9em;
+    border-top: 1px solid #30363d;
+    padding: 15px 0;
+}
+
+footer a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Hover Glow ---------- */
+h2:hover, header h1:hover {
+    text-shadow: 0 0 8px #58a6ff;
+    transition: 0.3s;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 4px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .infobox {
+        width: 100%;
+        float: none;
+        margin: 0 0 20px 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .infobox {
+        width: 100%;
+        float: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ---------- Hamburger Button ---------- -->
+<button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+<!-- ---------- Sidebar Navigation ---------- -->
+<nav class="sidebar" id="sidebar">
+    <h2>Contents</h2>
+    <a href="#intro" onclick="toggleSidebar()">Introduction</a>
+    <a href="#early" onclick="toggleSidebar()">Early Life</a>
+    <a href="#education" onclick="toggleSidebar()">Education</a>
+    <a href="#skills" onclick="toggleSidebar()">Technical Skills</a>
+    <a href="#career" onclick="toggleSidebar()">Career Goals</a>
+    <a href="#personal" onclick="toggleSidebar()">Personal Life</a>
+</nav>
+
+<!-- ---------- Main Content ---------- -->
+<main>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png" alt="Wikipedia Icon">
+        <h1 id="intro">Joshika Saravanan</h1>
+    </header>
+
+    <!-- ---------- Infobox ---------- -->
+    <aside class="infobox">
+        <img src="https://www.shutterstock.com/shutterstock/photos/2377510563/display_1500/stock-vector-big-woman-emoji-on-transparent-background-2377510563.jpg" alt="Joshika Saravanan">
+        <table>
+            <tr><th colspan="2" style="text-align:center;">Quick Facts</th></tr>
+            <tr><th>Full Name</th><td>Joshika Saravanan</td></tr>
+            <tr><th>Born</th><td>May 21, 2003</td></tr>
+            <tr><th>Nationality</th><td>Indian</td></tr>
+            <tr><th>Occupation</th><td>Upcoming Full Stack Developer</td></tr>
+        </table>
+    </aside>
+
+    <!-- ---------- Introduction ---------- -->
+    <section>
+        <p><b>Joshika Saravanan</b> (born <span>May 21, 2003</span>) is a graduate who completed her <b>Bachelor of Arts in English Literature</b> in <span>2023</span> and is an upcoming full stack developer.</p>
+    </section>
+
+    <!-- ---------- Early Life ---------- -->
+    <section id="early">
+        <h2>Early Life</h2>
+        <p>I was born and raised in a loving family that valued education, kindness, and hard work. From a young age, I showed curiosity about the world and a strong desire to learn new things. My childhood was filled with memorable moments — from spending time with friends and family to exploring creative hobbies that shaped my personality.</p>
+    </section>
+
+    <!-- ---------- Education ---------- -->
+    <section id="education">
+        <h2>Education</h2>
+        <p>I completed my schooling at <b>Government Girls Higher Secondary School</b> and later earned a <b>Bachelor of Arts in English Literature</b> from <b>Bathamavani College of Arts and Science</b>.</p>
+        <article>
+            <h3>Academic Highlights</h3>
+            <ul>
+                <li>Maintained consistent academic performance</li>
+                <li>Participated in cultural and technical events during college</li>
+                <li>Developed an interest in technology and creative design</li>
+            </ul>
+        </article>
+    </section>
+
+    <!-- ---------- Technical Skills ---------- -->
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <article>
+            <p>I have strong expertise in <b>Full Stack Development</b>, with hands-on experience in building dynamic and responsive web applications. My technical skills include:</p>
+            <ul>
+                <li><b>Front-End:</b> HTML5, CSS3, JavaScript (ES6+), React.js, Bootstrap, Tailwind CSS</li>
+                <li><b>Back-End:</b> Node.js, Express.js, Java, Python (Flask/Django)</li>
+                <li><b>Database:</b> MySQL, MongoDB, Firebase</li>
+                <li><b>Version Control:</b> Git, GitHub</li>
+                <li><b>Tools & Platforms:</b> VS Code, Postman, Figma, RESTful APIs</li>
+            </ul>
+        </article>
+    </section>
+
+    <!-- ---------- Career Goals ---------- -->
+    <section id="career">
+        <h2>Career Goals</h2>
+        <p>My career goal is to become a skilled and professional <b>Full Stack Developer</b> who can build innovative, user-friendly, and efficient web applications. I aim to master both front-end and back-end technologies, focusing on frameworks such as React, Node.js, and Express.</p>
+        <article>
+            <h4>Future Vision</h4>
+            <p>Beyond coding, I aspire to contribute to meaningful projects that make a positive impact on people’s lives through technology, while continuously learning and adapting in the ever-evolving tech industry.</p>
+        </article>
+    </section>
+
+    <!-- ---------- Personal Life ---------- -->
+    <section id="personal">
+        <h2>Personal Life</h2>
+        <p>Outside of academics and technology, I enjoy creative activities that help me stay balanced and inspired.</p>
+        <article>
+            <h5>Hobbies & Interests</h5>
+            <ul>
+                <li>Dancing and singing</li>
+                <li>Photography</li>
+                <li>Playing badminton</li>
+                <li>Exploring new ideas in art and design</li>
+            </ul>
+            <h6>Favorite Quote</h6>
+            <p><em>"Success is not the key to happiness. Happiness is the key to success."</em></p>
+        </article>
+    </section>
+
+    <!-- ---------- Footer ---------- -->
+    <footer>
+        © 2025 Joshika Saravanan | Wikipedia-style Dark Theme |
+        <a href="https://frabjous-kringle-f3cffa.netlify.app/" target="_blank">Live Reference</a>
+    </footer>
+</main>
+
+<!-- ---------- JavaScript: Sidebar Toggle ---------- -->
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
